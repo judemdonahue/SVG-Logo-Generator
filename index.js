@@ -1,5 +1,5 @@
 //Require modules
-const { Shape } = require('./lib/shapes');
+const { SVGBase, Square, Circle, Triangle } = require('./lib/shapes');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
@@ -8,38 +8,63 @@ const path = require('path');
 inquirer
 .prompt([
     {
-        type: input,
-        name: text,
-        message: "Please provide text for your logo. (1 - 4 Characters)",
+        type: 'input',
+        name: 'text',
+        message: 'Please provide text for your logo. (1 - 3 Characters)',
         validate: function(answer) {
             if (answer.length < 1) {
                 return '❗Please enter valid logo text.❗';
-            } if (answer.length > 4) {
+            } if (answer.length > 3) {
                 return '❗Please enter valid logo text.❗';
             }
             return true;
           }
     },
     {
-        type: list,
-        name: textColor,
-        message: "Please select a color for your logo text.",
+        type: 'list',
+        name: 'textColor',
+        message: 'Please select a color for your logo text.',
         choices: ["Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Black", "White"],
     },
     {
-        type: list,
-        name: shape,
-        message: "Please select a shape for your logo.",
+        type: 'list',
+        name: 'shape',
+        message: 'Please select a shape for your logo.',
         choices: ["Square", "Circle", "Triangle"],
     },
     {
-        type: list,
-        name: shapeColor,
-        message: "Please select a color for your logo shape.",
+        type: 'list',
+        name: 'shapeColor',
+        message: 'Please select a color for your logo shape.',
         choices: ["Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Black", "White"],
     },
 ])
+.then((input) => {
+    let text = input.text;
+    let textColor = input.textColor;
+    let shape = input.shape;
+    let shapeColor = input.shapeColor;
 
+    if (shape = "Square") {
+        const square = new Square(shapeColor, text, textColor);
+        const render = square.renderSquare(square.shapeColor, square.text, square.textColor);
+            fs.writeFile(`./examples/${text}.svg`, render, (err) =>
+            err ? console.log(err) : console.log('Successfully Rendered New SVG Logo!'));
+
+    } else if (shape = "Circle") {
+        const circle = new Circle(shapeColor, text, textColor);
+        const render = circle.renderCircle(circle.shapeColor, circle.text, circle.textColor);
+            fs.writeFile(`./examples/${text}.svg`, render, (err) =>
+            err ? console.log(err) : console.log('Successfully Rendered New SVG Logo!'));
+
+    } else if (shape = "Triangle") {
+        const triangle = new Triangle(shapeColor, text, textColor);
+        const render = triangle.renderTriangle(triangle.shapeColor, triangle.text, triangle.textColor);
+            fs.writeFile(`./examples/${text}.svg`, render, (err) =>
+            err ? console.log(err) : console.log('Successfully Rendered New SVG Logo!'));
+
+    }
+});
 
 
 
@@ -62,12 +87,12 @@ inquirer
 
 
 // GIVEN a command-line application that accepts user input
-// WHEN I am prompted for text
-// THEN I can enter up to three characters
+// WHEN I am prompted for text ✅
+// THEN I can enter up to three characters✅
 // WHEN I am prompted for the text color
 // THEN I can enter a color keyword (OR a hexadecimal number)
-// WHEN I am prompted for a shape
-// THEN I am presented with a list of shapes to choose from: circle, triangle, and square
+// WHEN I am prompted for a shape✅
+// THEN I am presented with a list of shapes to choose from: circle, triangle, and square✅
 // WHEN I am prompted for the shape's color
 // THEN I can enter a color keyword (OR a hexadecimal number)
 // WHEN I have entered input for all the prompts
