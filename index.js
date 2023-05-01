@@ -40,11 +40,13 @@ inquirer
     },
 ])
 .then((input) => {
+    //Declaring variables to set CLI input into Constructor Parameters
     let text = input.text;
     let textColor = input.textColor;
     let shape = input.shape;
     let shapeColor = input.shapeColor;
 
+    //If else fork to write a file with user input
     if (shape === "Square") {
         const square = new Square(shapeColor, text, textColor);
         const render = square.renderSquare(square.shapeColor, square.text, square.textColor);
