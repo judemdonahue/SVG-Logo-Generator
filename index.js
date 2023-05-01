@@ -45,19 +45,19 @@ inquirer
     let shape = input.shape;
     let shapeColor = input.shapeColor;
 
-    if (shape = "Square") {
+    if (shape === "Square") {
         const square = new Square(shapeColor, text, textColor);
         const render = square.renderSquare(square.shapeColor, square.text, square.textColor);
             fs.writeFile(`./examples/${text}.svg`, render, (err) =>
             err ? console.log(err) : console.log('Successfully Rendered New SVG Logo!'));
 
-    } else if (shape = "Circle") {
+    } else if (shape === "Circle") {
         const circle = new Circle(shapeColor, text, textColor);
         const render = circle.renderCircle(circle.shapeColor, circle.text, circle.textColor);
             fs.writeFile(`./examples/${text}.svg`, render, (err) =>
             err ? console.log(err) : console.log('Successfully Rendered New SVG Logo!'));
 
-    } else if (shape = "Triangle") {
+    } else if (shape === "Triangle") {
         const triangle = new Triangle(shapeColor, text, textColor);
         const render = triangle.renderTriangle(triangle.shapeColor, triangle.text, triangle.textColor);
             fs.writeFile(`./examples/${text}.svg`, render, (err) =>
