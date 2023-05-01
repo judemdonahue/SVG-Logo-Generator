@@ -26,6 +26,7 @@ Clone linked repository: https://github.com/judemdonahue/SVG-Logo-Generator
 ## Usage
 To use, clone the repository to your local device. Open the cloned repo in VS-Code, and open a New Terminal. In the CLI, run ‘npm i’ to install the required packages. Enter ‘node index.js’, and answer the questions that are prompted. Upon answering the questions, a new logo.svg file will be written in the './examples' folder.
 
+[SVG-Render:Test-Demo-Vid.webm](https://user-images.githubusercontent.com/122579098/235411278-21da07d7-d176-4917-b37e-41d3abc72923.webm)
 
 
 ## License
