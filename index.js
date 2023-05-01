@@ -8,6 +8,18 @@ const path = require('path');
 inquirer
 .prompt([
     {
+        type: 'list',
+        name: 'shape',
+        message: 'Please select a shape for your logo.',
+        choices: ["Square", "Circle", "Triangle"],
+    },
+    {
+        type: 'list',
+        name: 'shapeColor',
+        message: 'Please select a color for your logo shape.',
+        choices: ["Black", "White", "Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Orange", "Purple", "Pink", "Brown", "Grey"],
+    },
+    {
         type: 'input',
         name: 'text',
         message: 'Please provide text for your logo. (1 - 3 Characters)',
@@ -24,19 +36,7 @@ inquirer
         type: 'list',
         name: 'textColor',
         message: 'Please select a color for your logo text.',
-        choices: ["Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Black", "White"],
-    },
-    {
-        type: 'list',
-        name: 'shape',
-        message: 'Please select a shape for your logo.',
-        choices: ["Square", "Circle", "Triangle"],
-    },
-    {
-        type: 'list',
-        name: 'shapeColor',
-        message: 'Please select a color for your logo shape.',
-        choices: ["Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Black", "White"],
+        choices: ["Black", "White", "Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Orange", "Purple", "Pink", "Brown", "Grey"],
     },
 ])
 .then((input) => {
@@ -65,38 +65,3 @@ inquirer
 
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for text ✅
-// THEN I can enter up to three characters✅
-// WHEN I am prompted for the text color
-// THEN I can enter a color keyword (OR a hexadecimal number)
-// WHEN I am prompted for a shape✅
-// THEN I am presented with a list of shapes to choose from: circle, triangle, and square✅
-// WHEN I am prompted for the shape's color
-// THEN I can enter a color keyword (OR a hexadecimal number)
-// WHEN I have entered input for all the prompts
-// THEN an SVG file is created named `logo.svg`
-// AND the output text "Generated logo.svg" is printed in the command line
-// WHEN I open the `logo.svg` file in a browser
-// THEN I am shown a 300x200 pixel image that matches the criteria I entered
